@@ -14,7 +14,8 @@ def downloadModel(modelUrl, cacheDir, subdir):
     get_file(fname=fileName, origin=modelUrl, cache_dir=cacheDir, cache_subdir=subdir, extract=True)
     return modelName
 
-def loadModel(modelName, cacheDir, cache_subdir ):
+# load model takes inn
+def loadModel(modelName, cacheDir, cache_subdir):
   print("loading Model " + modelName)
   tf.keras.backend.clear_session()
   model = tf.saved_model.load(os.path.join(cacheDir, cache_subdir, modelName, "saved_model"))
