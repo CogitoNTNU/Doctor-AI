@@ -10,3 +10,10 @@ Technology used:
 <a href="https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation">Dataset</a> <br>
 Technology used:
 
+
+## Code Standards
+Variables:
+- camelCase
+
+Method:
+- Snake_Case
