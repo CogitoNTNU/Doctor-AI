@@ -10,13 +10,15 @@ from PIL import Image
 from tqdm import tqdm
 
 # Define datapath
-dataPath = "../data/chest_xray/train"
+dataPath = os.path.join("..", "data", "chest_xray", "train")
 
 batchSize = 16
 
 # Define tranformer for images
 transform = transforms.Compose([
-    transforms.Resize((112, 112)),  # Resize the image to the desired size
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(15),
+    transforms.Resize((224, 224)),  # Resize the image to the desired size
     transforms.ToTensor(),  # Convert the image to a PyTorch tensor
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # Normalize the image using ImageNet mean and std
 ])
@@ -62,7 +64,7 @@ model.to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-num_epochs = 5
+num_epochs = 5 # Number of training epochs
 print_every_n_batches = 10  # Adjust this value to control the frequency of progress updates
 
 for epoch in range(num_epochs):
@@ -100,7 +102,7 @@ for epoch in range(num_epochs):
 print("Training complete.")
 
 # Save the trained model
-savePath= "pneumonia.pth"
+savePath= "pneumoniaV3.pth"
 torch.save(model.state_dict(), savePath)
 print(f"Model saved to {os.path.abspath(savePath)}")
 

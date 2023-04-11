@@ -1,5 +1,6 @@
 import os
 import torch
+import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
 from PIL import Image
@@ -7,7 +8,7 @@ from torch.utils.data import DataLoader, Dataset
 
 # Define tranformer for images
 transform = transforms.Compose([
-    transforms.Resize((112, 112)),  # Resize the image to the desired size
+    transforms.Resize((224, 224)),  # Resize the image to the desired size
     transforms.ToTensor(),  # Convert the image to a PyTorch tensor
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # Normalize the image using ImageNet mean and std
 ])
@@ -50,25 +51,33 @@ model = torchvision.models.resnet18(num_classes=2)
 model = model.to(device)
 
 # Load the saved weights
-model_load_path = "pneumoniaV1.pth"
+model_load_path = "pneumoniaV3.pth"
 model.load_state_dict(torch.load(model_load_path))
 
 # Set the model to evaluation mode
 model.eval()
 
-correct = 0
-total = 0
+criterion = nn.CrossEntropyLoss()
 
-# Evaluate the model on the validation dataset
+running_loss = 0
+running_corrects = 0
+total_samples = 0
+
 with torch.no_grad():
     for inputs, labels in dataLoader:
         inputs = inputs.to(device)
         labels = labels.to(device)
         
         outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        
         _, predicted = torch.max(outputs.data, 1)
-        total += labels.size(0)
-        correct += (predicted == labels).sum().item()
+        total_samples += labels.size(0)
+        running_corrects += (predicted == labels).sum().item()
+        running_loss += loss.item() * inputs.size(0)
 
-accuracy = 100 * correct / total
+print(running_corrects, total_samples)
+avg_loss = running_loss / total_samples
+accuracy = 100 * running_corrects / total_samples
+print(f'Loss on the evaluation dataset: {avg_loss:.4f}')
 print(f'Accuracy on the evaluation dataset: {accuracy:.2f}%')
