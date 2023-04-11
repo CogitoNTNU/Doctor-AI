@@ -1,3 +1,4 @@
+=============================
 Doctor AI
 =============================
 Deep learning for medical segmentation and classification - Tensorflow
@@ -5,14 +6,20 @@ Deep learning for medical segmentation and classification - Tensorflow
 Repository for the Doctor AI group, Spring 2023 at Cogito NTNU
 Lead by Vilhjalmur Arnar Vilhjalmsson
 
-## Classification
 
-`Dataset - Labeled Chest X-ray <https://www.kaggle.com/datasets/tolgadincer/labeled-chest-xray-images>`_ .
+=============================
+Classification
+=============================
+
+Dataset: `Labeled Chest X-ray <https://www.kaggle.com/datasets/tolgadincer/labeled-chest-xray-images>`_ .
 
 
 Technology used:
 
-## Segmentation
+
+=============================
+Segmentation
+=============================
 
 
 .. image:: http://img.shields.io/badge/arXiv-1505.04597-orange.svg?style=flat
@@ -23,7 +30,7 @@ Technology used:
 
 
 
-`Dataset LGG_MRI segmentation <https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation>`_ .
+Dataset: `LGG_MRI segmentation <https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation>`_ .
 
 
 
@@ -31,14 +38,18 @@ Technology used:
 Technology used:
 
 
-## Code Standards
+=============================
+Code Standards
+=============================
 Variables:
 - camelCase
 
 Method:
 - Snake_Case
 
-
+=============================
+Citation
+=============================
 
 
 As you use **Doctor-AI** for your own use, please cite the authors of the package::
@@ -50,3 +61,9 @@ As you use **Doctor-AI** for your own use, please cite the authors of the packag
 	  year={2023},
 	  publisher={Cogito NTNU}
 	}
+
+
+=============================
+License
+=============================
+This project is licensed under the MIT License. See the LICENSE file for more information.
