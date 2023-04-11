@@ -6,11 +6,13 @@ Repository for the Doctor AI group, Spring 2023 at Cogito NTNU
 Lead by Vilhjalmur Arnar Vilhjalmsson
 
 ## Classification
-<a href="https://www.kaggle.com/datasets/tolgadincer/labeled-chest-xray-images">Dataset</a> <br>
+
+`Dataset - Labeled Chest X-ray <https://www.kaggle.com/datasets/tolgadincer/labeled-chest-xray-images>`_ .
+
+
 Technology used:
 
 ## Segmentation
-
 
 
 .. image:: http://img.shields.io/badge/arXiv-1505.04597-orange.svg?style=flat
@@ -21,8 +23,10 @@ Technology used:
 
 
 
+`Dataset LGG_MRI segmentation <https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation>`_ .
 
-<a href="https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation">Dataset</a> <br>
+
+
 
 Technology used:
 
