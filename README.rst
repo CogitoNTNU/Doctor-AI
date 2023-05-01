@@ -77,7 +77,7 @@ Citation
 As you use **Doctor-AI** for your own use, please cite the authors of the package::
 
 
-	@article{doctorai2023,
+	@misc{doctorai2023,
 	  title={Doctor AI - U-Net for medical segmentation and classification},
 	  author={Vilhjalmurson, Vilhjalmur and Myhre, Sveinung and Bohne, Erik and Constantinos, Joel and Zhao, Ine},
 	  year={2023},
