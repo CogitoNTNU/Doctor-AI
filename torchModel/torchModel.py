@@ -111,7 +111,7 @@ for epoch in range(num_epochs):
 print("Training complete.")
 
 # Save the trained model
-savePath= "pneumoniaV4.pth"
+savePath= "models/pneumoniaV4.pth"
 torch.save(model.state_dict(), savePath)
 print(f"Model saved to {os.path.abspath(savePath)}")
 
